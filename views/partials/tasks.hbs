@@ -1,0 +1,45 @@
+<h1>Your tasks</h1>
+
+{{#each todos}}
+  <div class='task-list' id='list'>
+    <div class='form'>
+      <h3>{{task}}</h3>
+      <form action='/create-to-do-list-item/{{_id}}/delete' method='POST'>
+        <button id='deleteBtn'><img
+            src='/images/delete.png'
+            alt='delete-btn'
+            width='15'
+          /></button>
+      </form>
+    </div>
+    <p>Priority</p>
+    <button class='heart' id='green-heart'><img
+        src='/images/green_color.png'
+        alt='green-heart'
+        width='20'
+      /></button>
+    <button class='heart' id='orange-heart'><img
+        src='/images/orange_color.png'
+        alt='orange-heart'
+        width='20'
+      /></button>
+    <button class='heart' id='red-heart'><img
+        src='/images/red_color.png'
+        alt='red-heart'
+        width='20'
+      /></button>
+  </div>
+{{/each}}
+
+<script>
+
+  let btnRed = document.getElementById('red-heart'); let btnGreen
+  =document.getElementById('green-heart'); let btnOrange
+  =document.getElementById('orange-heart'); let btnAll =
+  document.querySelectorAll('.heart'); for(let i = 0; i < btnAll.length; i++) {
+  btnAll[i].addEventListener('click', function (e) { if (e.target.alt ==
+  'green-heart' ) { btnOrange.style.display = 'none'; btnRed.style.display
+  ='none'; } else if (e.target.alt == 'red-heart') { btnGreen.style.display =
+  'none'; btnOrange.style.display = 'none'; } else { btnGreen.style.display =
+  'none'; btnRed.style.display = 'none'; } }); }
+</script>

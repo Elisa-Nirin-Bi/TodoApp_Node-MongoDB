@@ -1,0 +1,15 @@
+<section class="main-section">
+  <div class="all-tasks">
+    {{> tasks}}
+  </div>
+
+<div id='task-div'>
+<form action='/create-to-do-list-item' method='POST'>
+  <label for='task-input'>New Task</label>
+  <input id='task-input' type='text' name='task' placeholder='Task' />
+<div id="div-btn-create-task">
+ <button id="btn-create-task">Create Task</button>
+ </div>
+</form>
+</div>
+</section>
