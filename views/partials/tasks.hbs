@@ -12,34 +12,42 @@
           /></button>
       </form>
     </div>
+    <div class='btn-list' id='btn-list'></div>
     <p>Priority</p>
-    <button class='heart' id='green-heart'><img
-        src='/images/green_color.png'
-        alt='green-heart'
-        width='20'
-      /></button>
-    <button class='heart' id='orange-heart'><img
-        src='/images/orange_color.png'
-        alt='orange-heart'
-        width='20'
-      /></button>
-    <button class='heart' id='red-heart'><img
-        src='/images/red_color.png'
-        alt='red-heart'
-        width='20'
-      /></button>
+    <img
+      src='/images/green_color.png'
+      alt='green-heart'
+      class='heart'
+      id='green-heart-{{this_id}}'
+      width='20'
+    /><img
+      src='/images/orange_color.png'
+      alt='orange-heart'
+      class='heart'
+      id='orange-heart-{{this_id}}'
+      width='20'
+    /><img
+      src='/images/red_color.png'
+      alt='red-heart'
+      class='heart'
+      id='red-heart-{{this_id}}'
+      width='20'
+    />
+
   </div>
 {{/each}}
 
 <script>
 
-  let btnRed = document.getElementById('red-heart'); let btnGreen
-  =document.getElementById('green-heart'); let btnOrange
-  =document.getElementById('orange-heart'); let btnAll =
+  let btnRed = document.getElementById('red-heart-{{this_id}}'); let btnGreen
+  =document.getElementById('green-heart-{{this_id}}'); let btnOrange
+  =document.getElementById('orange-heart-{{this_id}}'); let btnAll =
   document.querySelectorAll('.heart'); for(let i = 0; i < btnAll.length; i++) {
-  btnAll[i].addEventListener('click', function (e) { if (e.target.alt ==
-  'green-heart' ) { btnOrange.style.display = 'none'; btnRed.style.display
-  ='none'; } else if (e.target.alt == 'red-heart') { btnGreen.style.display =
-  'none'; btnOrange.style.display = 'none'; } else { btnGreen.style.display =
-  'none'; btnRed.style.display = 'none'; } }); }
+  btnAll[i].addEventListener('click', function (e) { if(e.target.alt
+  ==="red-heart"){ let c = e.target.previousSibling; let d = c.previousSibling;
+  c.style.display = "none", d.style.display = "none" } else if(e.target.alt
+  ==="orange-heart"){ let el = e.target.previousSibling; let f =
+  e.target.nextSibling; el.style.display = "none"; f.style.display = "none" }
+  else {let a = e.target.nextSibling; let b = a.nextSibling; a.style.display =
+  "none"; b.style.display = "none"} }); }
 </script>
